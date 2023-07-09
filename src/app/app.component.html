@@ -34,7 +34,7 @@
         mat-cell
         *matCellDef="let element; let i = index"
         (click)="clickedTopping(element.toppings, 'small', element.small)"
-        [ngClass]="{ selected: isSelected(element.toppings, 'small', element.small) }"
+        [ngClass]="{ selected: isSelected(element.toppings, 'small', element.small), pointer: +element.small }"
       >
         {{ +element.small ? (element.small | number: '1.2-2') : element.small }}
       </td>
@@ -46,7 +46,7 @@
         mat-cell
         *matCellDef="let element; let i = index"
         (click)="clickedTopping(element.toppings, 'medium', element.medium)"
-        [ngClass]="{ selected: isSelected(element.toppings, 'medium', element.medium) }"
+        [ngClass]="{ selected: isSelected(element.toppings, 'medium', element.medium), pointer: +element.medium }"
       >
         {{ +element.medium ? (element.medium | number: '1.2-2') : element.medium }}
       </td>
@@ -58,7 +58,7 @@
         mat-cell
         *matCellDef="let element; let i = index"
         (click)="clickedTopping(element.toppings, 'large', element.large)"
-        [ngClass]="{ selected: isSelected(element.toppings, 'large', element.large) }"
+        [ngClass]="{ selected: isSelected(element.toppings, 'large', element.large), pointer: +element.large }"
       >
         {{ +element.large ? (element.large | number: '1.2-2') : element.large }}
       </td>
@@ -72,7 +72,7 @@
         (click)="
           clickedTopping(element.toppings, 'extraLarge', element.extraLarge)
         "
-        [ngClass]="{ selected: isSelected(element.toppings, 'extraLarge', element.extraLarge ) }"
+        [ngClass]="{ selected: isSelected(element.toppings, 'extraLarge', element.extraLarge), pointer: +element.extraLarge }"
       >
         {{ +element.extraLarge ? (element.extraLarge | number: '1.2-2') : element.extraLarge }}
       </td>
@@ -82,4 +82,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
   <div class="total">{{ calculateTotal() | number: '1.2-2' }}</div>
+  <div class="footer">
+    <button mat-raised-button color="primary" (click)="order()" [disabled]="isDisabled()">Order</button>
+  </div>
 </div>

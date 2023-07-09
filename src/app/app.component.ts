@@ -47,7 +47,7 @@ export class AppComponent {
   selectedOffer = '';
   offers: Offer[] = [
     { title: 'Offer 1', description: '1 medium pizza with 2 toppings', price: '$5' },
-    { title: ' ̶O̶f̶f̶e̶r̶ ̶2̶', description: ' ̶2̶ ̶m̶e̶d̶i̶u̶m̶ ̶p̶i̶z̶z̶a̶s̶ ̶w̶i̶t̶h̶ ̶4̶ ̶t̶o̶p̶p̶i̶n̶g̶s̶ ̶e̶a̶c̶h̶ Disabled due to inconsistency with design(no way of purchasing multiple of the same pizza size)', price: '$̶9̶', disabled: true},
+    { title: ' ̶O̶f̶f̶e̶r̶ ̶2̶', description: ' ̶2̶ ̶m̶e̶d̶i̶u̶m̶ ̶p̶i̶z̶z̶a̶s̶ ̶w̶i̶t̶h̶ ̶4̶ ̶t̶o̶p̶p̶i̶n̶g̶s̶ ̶e̶a̶c̶h̶ Disabled due to inconsistency with design(no way of purchasing multiple of the same pizza size)', price: '$̶9̶', disabled: true },
     { title: 'Offer 3', description: '1 large pizza with 4 toppings (pepperoni and barbecue chicken count as 2 toppings) for 50% off', price: '50% off' }
   ];
 
@@ -108,7 +108,7 @@ export class AppComponent {
       ELEMENT_DATA[ELEMENT_DATA.length - 1].extraLarge = '';
       ELEMENT_DATA[ELEMENT_DATA.length - 2].extraLarge = '';
     }
-    
+
     return newCost ? newCost : total + initialPizzaCosts;
   }
 
@@ -149,5 +149,16 @@ export class AppComponent {
 
   isSelected(toppingName: string, size: string, price: number): boolean {
     return this.selectedCells.has(JSON.stringify({ toppingName, size, price }));
+  }
+
+  order(): void {
+    alert(`Order sent! Total cost is ${ELEMENT_DATA[ELEMENT_DATA.length - 1].large}!`);
+  }
+
+  isDisabled(): boolean {
+    if (ELEMENT_DATA[ELEMENT_DATA.length - 1].large) {
+      return false;
+    };
+    return true;
   }
 }
