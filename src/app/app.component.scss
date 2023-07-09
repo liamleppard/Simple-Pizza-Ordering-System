@@ -1,0 +1,49 @@
+.container {
+  margin: 20px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.toolbar-title {
+  margin-left: 5px;
+}
+
+.toolbar-icon {
+  margin-left: 5px;
+}
+
+.table {
+  margin-top: 20px;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.selected {
+  background: #cffcc7;
+  color: #212121;
+  border-left: 1px solid #595959;
+  border-right: 1px solid #595959;
+  border-bottom: 1px solid #595959;
+}
+
+.disabled {
+  background-color: #303030;
+  color: #a4a4a4;
+}
+
+.total {
+  visibility: hidden;
+}
+
+td.mat-cell {
+  padding: 5px;
+}
