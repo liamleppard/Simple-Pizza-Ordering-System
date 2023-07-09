@@ -32,7 +32,10 @@
       <th mat-header-cell *matHeaderCellDef colspan="4">Pizza Sizes</th>
       <td
         mat-cell
+        role="button"
+        tabindex="0"
         *matCellDef="let element; let i = index"
+        (keydown.enter)="clickedTopping(element.toppings, 'small', element.small)"
         (click)="clickedTopping(element.toppings, 'small', element.small)"
         [ngClass]="{ selected: isSelected(element.toppings, 'small', element.small), pointer: +element.small }"
       >
@@ -44,7 +47,10 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td
         mat-cell
+        role="button"
+        tabindex="0"
         *matCellDef="let element; let i = index"
+        (keydown.enter)="clickedTopping(element.toppings, 'medium', element.medium)"
         (click)="clickedTopping(element.toppings, 'medium', element.medium)"
         [ngClass]="{ selected: isSelected(element.toppings, 'medium', element.medium), pointer: +element.medium }"
       >
@@ -56,7 +62,10 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td
         mat-cell
+        role="button"
+        tabindex="0"
         *matCellDef="let element; let i = index"
+        (keydown.enter)="clickedTopping(element.toppings, 'large', element.large)"
         (click)="clickedTopping(element.toppings, 'large', element.large)"
         [ngClass]="{ selected: isSelected(element.toppings, 'large', element.large), pointer: +element.large }"
       >
@@ -68,10 +77,11 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td
         mat-cell
+        role="button"
+        tabindex="0"
         *matCellDef="let element; let i = index"
-        (click)="
-          clickedTopping(element.toppings, 'extraLarge', element.extraLarge)
-        "
+        (keydown.enter)="clickedTopping(element.toppings, 'extraLarge', element.extraLarge)"
+        (click)="clickedTopping(element.toppings, 'extraLarge', element.extraLarge)"
         [ngClass]="{ selected: isSelected(element.toppings, 'extraLarge', element.extraLarge), pointer: +element.extraLarge }"
       >
         {{ +element.extraLarge ? (element.extraLarge | number: '1.2-2') : element.extraLarge }}
